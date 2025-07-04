@@ -1,18 +1,15 @@
-from dadrah_sc.crawler import extract_question_links, save_links_to_file
-from dadrah_sc.parser import parse_all_links
+import logging
+from app.link_extractor import LinkExtractor
+from app.qa_scraper import QAScraper
+from app.config import Config
 
-def main():
-    try:
-        start = 1
-        end = 1
-
-        links = extract_question_links(start, end)
-        save_links_to_file(links)
-
-        parse_all_links()
-
-    except Exception as e:
-        print(f"[!] Error: {e}")
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 if __name__ == "__main__":
-    main()
+    le = LinkExtractor()
+    scraper = QAScraper()
+
+    links = le.extract_links(Config.START_PAGE, Config.END_PAGE)
+    le.save_links(links)
+
+    scraper.parse_all()
