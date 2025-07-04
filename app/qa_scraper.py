@@ -64,7 +64,7 @@ class QAScraper:
             if data:
                 results.append(data)
 
-            if i % 50 == 0:
+            if i % 200 == 0:
                 with open(output_file, "w", encoding="utf-8") as f:
                     json.dump(results, f, ensure_ascii=False, indent=2)
                 logging.info(f"[✓] Auto-saved at {i} entries")
