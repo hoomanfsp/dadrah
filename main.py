@@ -3,8 +3,8 @@ from dadrah_sc.parser import parse_all_links
 
 def main():
     try:
-        start = int(input("Start page number (about 21700 pages): "))
-        end = int(input("End page number: "))
+        start = 1
+        end = 1
 
         links = extract_question_links(start, end)
         save_links_to_file(links)

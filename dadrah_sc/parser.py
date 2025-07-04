@@ -30,7 +30,7 @@ def parse_page(url):
         q_body = q_card.find("div", class_="card-body").get_text(separator="\n", strip=True)
 
         answer_cards = soup.find_all("div", class_="card-body")
-        print(answer_cards)
+        #print(answer_cards)
         answers = []
 
         for card in answer_cards:
