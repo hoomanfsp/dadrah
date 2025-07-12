@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  dadrah:
+    build: .
+    container_name: dadrah_scraper
+    volumes:
+      - ./data:/app/data  # if your scraper stores outputs
+    restart: unless-stopped
